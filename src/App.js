@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import SearchList from './components/searchList';
+import { listTranslation } from './helpers/list';
 
 function App() {
+  const [search, setSearch] = useState('');
+  const change = (e) => setSearch(e.target.value);
+  const users = {
+    type: 'User',
+    items: [
+      {name: 'Ana', surname:"Manzana"},
+      {name: 'Juana', surname:"Hermana"},
+      {name: 'Juana', surname:"Pera"},
+    ]
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input onInput={change}/>
+      <SearchList items={listTranslation(users)} search={search}/>
     </div>
   );
 }
