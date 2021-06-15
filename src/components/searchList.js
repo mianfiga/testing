@@ -7,7 +7,7 @@ function SearchList(props) {
 
     return (
       <div className="search">
-        {filteredItems.map(i => (<div className="search-item">{i.name} - {i.description}</div>))}
+        {filteredItems.map((i, idx) => (<div className="search-item" key={idx}>{i.name} - {i.description}</div>))}
       </div>
     );
   }

@@ -5,10 +5,9 @@ export function listTranslation (list) {
       return list.items.map(i => {
         return {
           name: i.name,
-          description: i.surname,
-        }
+          description: i.surname
+        };
       });
-    
     case 'Group':
       return list.items.map(i => {
         return {
@@ -24,5 +23,7 @@ export function listTranslation (list) {
           description: i.description, 
         }
       });
+    default:
+      return [];
   }
 }
